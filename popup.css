@@ -1,0 +1,72 @@
+body {
+    width: 400px;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #333;
+    background-color: #f9f9fb;
+  }
+  
+  .container { padding: 16px; }
+  
+  h2 {
+    margin: 0 0 16px 0; font-size: 18px; color: #d35400;
+    border-bottom: 2px solid #e0e0e0; padding-bottom: 8px;
+  }
+  h3 { margin: 0 0 8px 0; font-size: 13px; color: #555; text-transform: uppercase; }
+  
+  .section {
+    margin-bottom: 16px; background: #fff; padding: 12px;
+    border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  .description { font-size: 11px; color: #888; }
+  
+  /* ボタン */
+  .btn {
+    display: block; width: 100%; padding: 8px 12px;
+    border: none; border-radius: 6px; font-size: 13px; cursor: pointer;
+    text-align: left; transition: background 0.2s;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .btn:hover { opacity: 0.9; }
+  .btn:active { transform: translateY(1px); }
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #ccc;
+    color: #666;
+    border: 1px solid #bbb;
+  }
+  .icon { width: 20px; text-align: center; }
+  
+  .primary { background-color: #007bff; color: white; justify-content: center; }
+  .success { background-color: #28a745; color: white; justify-content: center; }
+  .outline { background-color: #fff; border: 1px solid #ddd; color: #333; }
+  .outline:hover { background-color: #f0f0f5; }
+  .sm { font-size: 11px; padding: 4px 8px; }
+  
+  /* グリッドレイアウト用 */
+  .grid-buttons { display: flex; gap: 8px; }
+  
+  /* 制限解除オプション */
+  .unlock-options {
+    background: #f8f9fa; padding: 8px; border-radius: 4px; border: 1px solid #eee;
+  }
+  .chk-group { margin-bottom: 4px; font-size: 12px; }
+  .chk-group label { display: flex; align-items: center; cursor: pointer; }
+  .chk-group input { margin-right: 6px; }
+  
+  /* ドメインリスト */
+  .domain-list {
+    max-height: 140px; overflow-y: auto;
+    border: 1px solid #eee; border-radius: 4px; padding: 4px; margin-top: 5px;
+  }
+  .domain-item {
+    display: flex; align-items: center; padding: 4px;
+    font-size: 12px; border-bottom: 1px solid #f5f5f5;
+  }
+  .domain-item:last-child { border-bottom: none; }
+  .domain-item input { margin-right: 8px; }
+  .domain-item label { flex-grow: 1; cursor: pointer; word-break: break-all; }
+  .loading { padding: 10px; text-align: center; font-size: 12px; color: #999; }

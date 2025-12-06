@@ -1,0 +1,87 @@
+{
+    "extensionName": {
+		"message": "Web Browsing Toolbox",
+		"description": "Description of the extension."
+	},
+    "extensionDescription": {
+		"message": "ウェブブラウジングを便利にするツール箱",
+		"description": "Description of the extension."
+	},
+    "smartcopyGuide": {
+        "message": "スマートコピー: コピーしたいエリア(要素)をクリックしてください。\n(WordやExcelへの貼り付けに最適です)",
+        "description": "Smartcopy: feature guide"
+    },
+    "smartcopyCopied": {
+        "message": "コピーしました！\n貼り付け先でペーストしてください。",
+        "description": "Smartcopy: text copied"
+    },
+    "smartcopyFailed": {
+        "message": "コピーに失敗しました: ",
+        "description": "Smartcopy: copy failed"
+    },
+    "canceled": {
+        "message": "キャンセルしました",
+        "description": "Cancelled"
+    },
+    "quicktextNoRegistration": {
+        "message": "登録なし",
+        "description": "Quicktext: no registration"
+    },
+    "quicktextGuideToPaste": {
+        "message": "入力欄を選択(フォーカス)してからクリックしてください",
+        "description": "Quicktext: guide to paste"
+    },
+    "copyLink": {
+        "message": "リンクコピー",
+        "description": "Copy link"
+    },
+    "completed": {
+        "message": "完了",
+        "description": "Completed"
+    },
+    "editMode": {
+        "message": "編集モード",
+        "description": "Edit mode"
+    },
+    "deleteMode": {
+        "message": "削除モード: 要素をクリックして削除 (Escで終了)",
+        "description": "Delete mode"
+    },
+    "finished": {
+        "message": "終了しました",
+        "description": "Finished"
+    },
+    "unlocked": {
+        "message": "解除しました",
+        "description": "Unlocked"
+    },
+    "unavailable": {
+        "message": "利用不可",
+        "description": "Unavailable"
+    },
+    "noExternalResources": {
+        "message": "外部リソースなし",
+        "description": "No external resources"
+    },
+    "popupAndCopy":             {"message": "ポップアップ & コピー"},
+    "popup":                    {"message": "ポップアップ"},
+    "copySelected":             {"message": "要素選択コピー"},
+    "editAndUnlock":            {"message": "編集・制限解除"},
+    "deleteSelected":           {"message": "要素選択削除"},
+    "rightClick":               {"message": " 右クリック"},
+    "selectText":               {"message": " テキスト選択"},
+    "copying":                  {"message": " コピー"},
+    "unlockChecked":            {"message": " 選択した制限を解除"},
+    "quickText":                {"message": "クイックテキスト"},
+    "quickTextDescription":     {"message": "直前にカーソルがあった場所に挿入します"},
+    "quickTextNamePlaceholder": {"message": "名称 (例: 住所)"},
+    "quickTextValuePlaceholder": {"message": "値 (例: 東京都...)"},
+    "domainBlocker":            {"message": "ドメインブロッカー"},
+    "domainBlockerDescription": {"message": "チェックでlocalhostへ転送"},
+    "clearAll":                 {"message": "全て解除"},
+    "analyzing":                {"message": "解析中..."},
+    "applyChange":              {"message": "変更を反映 (ページ更新)"},
+    "urlQRCode":                {"message": "URLのQRコード"}
+    
+    
+}

@@ -1,0 +1,85 @@
+{
+    "extensionName": {
+		"message": "Web Browsing Toolbox",
+		"description": "Description of the extension."
+	},
+    "extensionDescription": {
+		"message": "Toolbox for web browsing useful",
+		"description": "Description of the extension."
+	},
+    "smartcopyGuide": {
+        "message": "Smart Copy: Click on the area (element) you want to copy.\n(Perfect for pasting into Word or Excel)",
+        "description": "Smartcopy: feature guide"
+    },
+    "smartcopyCopied": {
+        "message": "Copied!\nPlease paste where you want.",
+        "description": "Smartcopy: text copied"
+    },
+    "smartcopyFailed": {
+        "message": "Copy failed: ",
+        "description": "Smartcopy: copy failed"
+    },
+    "canceled": {
+        "message": "Cancelled",
+        "description": "Cancelled"
+    },
+    "quicktextNoRegistration": {
+        "message": "No registration",
+        "description": "Quicktext: no registration"
+    },
+    "quicktextGuideToPaste": {
+        "message": "Please select (focus) the input field and then click",
+        "description": "Quicktext: guide to paste"
+    },
+    "copyLink": {
+        "message": "Copy link",
+        "description": "Copy link"
+    },
+    "completed": {
+        "message": "Completed",
+        "description": "Completed"
+    },
+    "editMode": {
+        "message": "Edit mode",
+        "description": "Edit mode"
+    },
+    "deleteMode": {
+        "message": "Delete mode: Click on an element to delete it (Esc to exit)",
+        "description": "Delete mode"
+    },
+    "finished": {
+        "message": "Finished",
+        "description": "Finished"
+    },
+    "unlocked": {
+        "message": "Unlocked",
+        "description": "Unlocked"
+    },
+    "unavailable": {
+        "message": "Unavailable",
+        "description": "Unavailable"
+    },
+    "noExternalResources": {
+        "message": "No external resources",
+        "description": "No external resources"
+    },
+    "popupAndCopy":             {"message": "Popup & copy"},
+    "popup":                    {"message": "Popup"},
+    "copySelected":             {"message": "Element Copy"},
+    "editAndUnlock":            {"message": "Edit & Unlock"},
+    "deleteSelected":           {"message": "Delete Element"},
+    "rightClick":               {"message": "Right Click"},
+    "selectText":               {"message": " Select Text"},
+    "copying":                  {"message": " Copying"},
+    "unlockChecked":            {"message": " Unlocked checked items"},
+    "quickText":                {"message": "Quick Text"},
+    "quickTextDescription":     {"message": "Paste into the last cursor point"},
+    "quickTextNamePlaceholder": {"message": "Name (e.g. Address)"},
+    "quickTextValuePlaceholder": {"message": "Value (e.g. Tokyo...)"},
+    "domainBlocker":            {"message": "Domain Blocker"},
+    "domainBlockerDescription": {"message": "Check to transfer to localhost"},
+    "clearAll":                 {"message": "Clear All"},
+    "analyzing":                {"message": "Analyzing..."},
+    "applyChange":              {"message": "Apply Change (reload page)"},
+    "urlQRCode":                {"message": "QR code for URL"}
+}
