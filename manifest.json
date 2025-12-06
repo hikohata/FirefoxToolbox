@@ -1,4 +1,9 @@
 {
+    "applications": {
+      "gecko": {
+        "id": "toolbox@hikohata"
+      }
+    },
     "manifest_version": 3,
     "name": "__MSG_extensionName__",
     "author": "Hiroyuki Kohata",
@@ -14,6 +19,11 @@
     "host_permissions": [
       "<all_urls>"
     ],
+    "browser_specific_settings": {
+      "gecko": {
+        "data_collection_permissions": []
+      }
+    },
     "action": {
       "default_popup": "popup.html",
       "default_icon": {
