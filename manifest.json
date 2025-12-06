@@ -1,7 +1,8 @@
 {
-    "applications": {
+    "browser_specific_settings": {
       "gecko": {
-        "id": "toolbox@hikohata"
+        "id": "toolbox@hikohata",
+        "data_collection_permissions": {}
       }
     },
     "manifest_version": 3,
@@ -19,11 +20,6 @@
     "host_permissions": [
       "<all_urls>"
     ],
-    "browser_specific_settings": {
-      "gecko": {
-        "data_collection_permissions": []
-      }
-    },
     "action": {
       "default_popup": "popup.html",
       "default_icon": {
