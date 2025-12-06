@@ -1,8 +1,7 @@
 {
     "browser_specific_settings": {
       "gecko": {
-        "id": "toolbox@hikohata",
-        "data_collection_permissions": {}
+        "id": "toolbox@hikohata"
       }
     },
     "manifest_version": 3,
