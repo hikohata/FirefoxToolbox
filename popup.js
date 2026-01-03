@@ -7,6 +7,62 @@
 // 多言語対応初期化
 document.addEventListener('DOMContentLoaded', () => {
   l10n.localize(document);
+
+  // ==========================================
+  // 5. Sticky Notes (Toggle & List)
+  // ==========================================
+  
+  const btnToggle = document.getElementById('btn-toggle-notes');
+  const lblToggle = document.getElementById('lbl-toggle-notes');
+
+  // 初期表示時のボタン状態設定
+  (async function initStickyBtn() {
+    const data = await browser.storage.local.get('stickyNotesEnabled');
+    const isEnabled = !!data.stickyNotesEnabled;
+    updateBtnState(isEnabled);
+  })();
+
+  function updateBtnState(isEnabled) {
+    if (isEnabled) {
+      btnToggle.classList.remove('primary');
+      btnToggle.classList.add('outline');
+      lblToggle.innerText = browser.i18n.getMessage("deactivateNote");
+      btnToggle.style.backgroundColor = '#e6f7ff';
+    } else {
+      btnToggle.classList.add('primary');
+      btnToggle.classList.remove('outline');
+      lblToggle.innerText = browser.i18n.getMessage("activateNote");
+      btnToggle.style.backgroundColor = '';
+    }
+  }
+
+  // ON/OFF 切り替え処理
+  btnToggle.addEventListener('click', async () => {
+    // 現在の状態を取得して反転
+    const data = await browser.storage.local.get('stickyNotesEnabled');
+    const newState = !data.stickyNotesEnabled;
+
+    // 設定保存
+    await browser.storage.local.set({ stickyNotesEnabled: newState });
+    updateBtnState(newState);
+
+    // 現在のアクティブタブに通知して即時反映させる
+    const tab = await getCurrentTab();
+    try {
+      await browser.tabs.sendMessage(tab.id, { 
+        action: 'toggleStickyNotes', 
+        enabled: newState 
+      });
+    } catch (e) {
+      // コンテントスクリプトが読み込まれていないページ（chrome://など）ではエラーになるため無視
+      console.log('Cannot inject into this page', e);
+    }
+  });
+
+  // リスト表示
+  document.getElementById('btn-view-notes-list').addEventListener('click', () => {
+    browser.tabs.create({ url: 'notes_list.html' });
+  });
 });
 
 // --- ユーティリティ関数 ---

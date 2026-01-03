@@ -1,68 +1,20 @@
 {
-    "extensionName": {
-		"message": "Web Browsing Toolbox",
-		"description": "Description of the extension."
-	},
-    "extensionDescription": {
-		"message": "Toolbox for web browsing useful",
-		"description": "Description of the extension."
-	},
-    "smartcopyGuide": {
-        "message": "Smart Copy: Click on the area (element) you want to copy.\n(Perfect for pasting into Word or Excel)",
-        "description": "Smartcopy: feature guide"
-    },
-    "smartcopyCopied": {
-        "message": "Copied!\nPlease paste where you want.",
-        "description": "Smartcopy: text copied"
-    },
-    "smartcopyFailed": {
-        "message": "Copy failed: ",
-        "description": "Smartcopy: copy failed"
-    },
-    "canceled": {
-        "message": "Cancelled",
-        "description": "Cancelled"
-    },
-    "quicktextNoRegistration": {
-        "message": "No registration",
-        "description": "Quicktext: no registration"
-    },
-    "quicktextGuideToPaste": {
-        "message": "Please select (focus) the input field and then click",
-        "description": "Quicktext: guide to paste"
-    },
-    "copyLink": {
-        "message": "Copy link",
-        "description": "Copy link"
-    },
-    "completed": {
-        "message": "Completed",
-        "description": "Completed"
-    },
-    "editMode": {
-        "message": "Edit mode",
-        "description": "Edit mode"
-    },
-    "deleteMode": {
-        "message": "Delete mode: Click on an element to delete it (Esc to exit)",
-        "description": "Delete mode"
-    },
-    "finished": {
-        "message": "Finished",
-        "description": "Finished"
-    },
-    "unlocked": {
-        "message": "Unlocked",
-        "description": "Unlocked"
-    },
-    "unavailable": {
-        "message": "Unavailable",
-        "description": "Unavailable"
-    },
-    "noExternalResources": {
-        "message": "No external resources",
-        "description": "No external resources"
-    },
+    "extensionName":            {"message": "Web Browsing Toolbox"},
+    "extensionDescription":     {"message": "Toolbox for web browsing useful"},
+    "smartcopyGuide":           {"message": "Smart Copy: Click on the area (element) you want to copy.\n(Perfect for pasting into Word or Excel)"},
+    "smartcopyCopied":          {"message": "Copied!\nPlease paste where you want."},
+    "smartcopyFailed":          {"message": "Copy failed: "},
+    "canceled":                 {"message": "Cancelled"},
+    "quicktextNoRegistration":  {"message": "No registration"},
+    "quicktextGuideToPaste":    {"message": "Please select (focus) the input field and then click"},
+    "copyLink":                 {"message": "Copy link"},
+    "completed":                {"message": "Completed"},
+    "editMode":                 {"message": "Edit mode"},
+    "deleteMode":               {"message": "Delete mode: Click on an element to delete it (Esc to exit)"},
+    "finished":                 {"message": "Finished"},
+    "unlocked":                 {"message": "Unlocked"},
+    "unavailable":              {"message": "Unavailable"},
+    "noExternalResources":      {"message": "No external resources"},
     "popupAndCopy":             {"message": "Popup & copy"},
     "popup":                    {"message": "Popup"},
     "copySelected":             {"message": "Element Copy"},
@@ -75,11 +27,28 @@
     "quickText":                {"message": "Quick Text"},
     "quickTextDescription":     {"message": "Paste into the last cursor point"},
     "quickTextNamePlaceholder": {"message": "Name (e.g. Address)"},
-    "quickTextValuePlaceholder": {"message": "Value (e.g. Tokyo...)"},
+    "quickTextValuePlaceholder":{"message": "Value (e.g. Tokyo...)"},
     "domainBlocker":            {"message": "Domain Blocker"},
     "domainBlockerDescription": {"message": "Check to transfer to localhost"},
     "clearAll":                 {"message": "Clear All"},
     "analyzing":                {"message": "Analyzing..."},
     "applyChange":              {"message": "Apply Change (reload page)"},
-    "urlQRCode":                {"message": "QR code for URL"}
+    "urlQRCode":                {"message": "QR code for URL"},
+    "stickyNote":               {"message": "Sticky Notes"},
+    "activateNote":             {"message": "Activate"},
+    "deactivateNote":           {"message": "Deactivate"},
+    "allNotesList":             {"message": "All Notes List"},
+    "clearPageNotes":           {"message": "Clear Page Notes"},
+    "clearPageNotesConfirm":    {"message": "Delete all notes on this page?"},
+    "newNote":                  {"message": "New Note"},
+    "storedStickyNotes":        {"message": "Stored Sticky Notes"},
+    "pageTitle":                {"message": "Page Title"},
+    "url":                      {"message": "URL"},
+    "noteContent":              {"message": "Note Content"},
+    "updated":                  {"message": "Updated"},
+    "action":                   {"message": "Action"},
+    "noNotes":                  {"message": "No notes found."},
+    "deleteNote":               {"message": "Delete this note"},
+    "deleteNoteConfirm":        {"message": "Delete this note permanently?"}
+    
 }
