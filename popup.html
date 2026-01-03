@@ -12,6 +12,18 @@
     <h2 data-l10n="extensionName">Web Browsing Toolbox</h2>
 
     <div class="section">
+      <h3 data-l10n="stickyNote">Sticky Notes</h3>
+      <div class="grid-buttons">
+        <button id="btn-toggle-notes" class="btn primary">
+          <span class="icon">📝</span> <span id="lbl-toggle-notes" data-l10n="activateNote">Activate Notes</span>
+        </button>
+        <button id="btn-view-notes-list" class="btn outline">
+          <span class="icon">📂</span> <span class="text-label" data-l10n="allNotesList">All Notes List</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="section">
       <h3 data-l10n="popupAndCopy">Popup & copy</h3>
       <div class="grid-buttons">
         <button id="btn-popup-window" class="btn primary"><span class="icon">❐</span> <span class="text-label" data-l10n="popup">Popup</span></button>
@@ -41,8 +53,8 @@
       <h3 data-l10n="quickText">Quick Text</h3>
       <p class="description" data-l10n="quickTextDescription">Paste into the last cursor point</p>
       <div id="quick-text-list" class="quick-text-list">
-        </div>
-      <div class="input-group">
+    </div>
+    <div class="input-group">
         <input type="text" id="qt-key" data-l10n-attr="placeholder:quickTextNamePlaceholder" style="width:30%;">
         <input type="text" id="qt-val" data-l10n-attr="placeholder:quickTextValuePlaceholder" style="width:50%;">
         <button id="btn-add-qt" class="btn primary sm" style="width:auto;">＋</button>
