@@ -1,7 +1,7 @@
 # Web Browsing Toolbox
 (日本語は最下部)
 
-Web Browsing Toolbox is a Firefox WebExtension designed to make web browsing more convenient.
+Web Browsing Toolbox is a Firefox/Chrome WebExtension designed to make web browsing more convenient.
 It is secure since it runs locally without any external access.
 
 ## Main Features
@@ -43,13 +43,13 @@ It is secure since it runs locally without any external access.
 This project is released under the [MIT License](LICENSE).
 
 ### Included Libraries
-* **qrcode.js** — Copyright (c) 2012 davidshimjs (MIT License)
+* **qrcode.min.js** — Copyright (c) 2012 davidshimjs (MIT License)
 
 
 -----
 # Web Browsing Toolbox
 
-Webブラウジングを快適にするためのFirefox用アドオン（WebExtension）です。
+Webブラウジングを快適にするためのFirefox/Chrome用アドオン（WebExtension）です。
 外部アクセス無しのローカルで動作する為、セキュアです。
 
 ## 主な機能
@@ -91,4 +91,4 @@ Webブラウジングを快適にするためのFirefox用アドオン（WebExte
 本プロジェクトは [MIT License](LICENSE) の下で公開されています。
 
 ### 使用ライブラリ
-* **qrcode.js**: Copyright (c) 2012 davidshimjs (MIT License)
+* **qrcode.min.js**: Copyright (c) 2012 davidshimjs (MIT License)

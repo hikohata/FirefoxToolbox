@@ -23,19 +23,23 @@
   ],
   "action": {
     "default_popup": "popup.html",
-    "default_icon": {
-      "48": "icons/icon.svg" 
+  "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
     }
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["sticky_notes.js"],
+      "js": ["polyfill.js", "sticky_notes.js"], 
       "run_at": "document_end"
     }
   ],
   "icons": {
-    "48": "icons/icon.svg"
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
   },
   "default_locale": "en"
 }
