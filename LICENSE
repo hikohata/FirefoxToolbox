@@ -23,9 +23,19 @@ SOFTWARE.
 -------------------------------------------------------------------------
 Third Party Libraries
 
-This software uses the following open source library:
+This software uses the following open source libraries:
 
 qrcode.js
 Copyright (c) 2012 davidshimjs
 Released under the MIT License
 https://github.com/davidshimjs/qrcodejs
+
+Papa Parse
+Copyright (c) 2013-2019 Matt Holt
+Released under the MIT License
+https://github.com/mholt/PapaParse
+
+jschardet
+Copyright (c) 2019 Antonio Mendes
+Released under the LGPL License
+https://github.com/aadsm/jschardet

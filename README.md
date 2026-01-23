@@ -28,14 +28,13 @@ It is secure since it runs locally without any external access.
    * Generate a QR code for the current URL. Generation is done locally using a JavaScript library only, ensuring it remains secure.
 
 ## File Structure
-
 * `manifest.json`: Extension manifest
-* `popup.html`: Popup UI HTML
-* `popup.css`: Popup styles
-* `popup.js`: Feature implementation scripts
-* `icon.svg`: App icon
-* `qrcode.min.js`: QR code generation library (3rd party)
-* `data-l10n.js`: Localization library
+* `html/`: HTML files (popup, notes_list, viewer)
+* `css/`: Stylesheets
+* `js/`: Application scripts
+* `lib/`: Third-party libraries (`qrcode`, `papaparse`, `jschardet`)
+* `_locales/`: Localization files
+* `icons/`: App icons
 * `LICENSE`: License file
 
 ## License
@@ -44,6 +43,8 @@ This project is released under the [MIT License](LICENSE).
 
 ### Included Libraries
 * **qrcode.min.js** — Copyright (c) 2012 davidshimjs (MIT License)
+* **papaparse.min.js** — Copyright (c) 2013-2019 Matt Holt (MIT License)
+* **jschardet.min.js** — Copyright (c) 2019 Antonio Mendes (LGPL License)
 
 
 -----
@@ -75,15 +76,24 @@ Webブラウジングを快適にするためのFirefox/Chrome用アドオン（
 6.  **QRコード生成**
     * 現在のURLのQRコードを生成します。ローカルのJavaScriptライブラリのみで生成するためセキュアです。
 
+7.  **付箋機能 (Sticky Notes)**
+    * ページ上に付箋を貼り付けてメモを残せます。
+
+8.  **データワイパー**
+    * 閲覧中のサイトのCookieやキャッシュを期間指定で削除します。
+
+9.  **CSV/TSVビューワー**
+    * CSV/TSVファイルをブラウザ内で整形表示します。
+
 ## ファイル構成
 
 * `manifest.json`: 拡張機能の定義ファイル
-* `popup.html`: ポップアップ画面のHTML
-* `popup.css`: ポップアップ画面のスタイル
-* `popup.js`: 機能実装のスクリプト
-* `icon.svg`: アプリアイコン
-* `qrcode.min.js`: QRコード生成ライブラリ(3rd party)
-* `data-l10n.js`: 多言語対応用ライブラリ
+* `html/`: HTMLファイル (popup, notes_list, viewer)
+* `css/`: スタイルシート
+* `js/`: スクリプトファイル
+* `lib/`: サードパーティライブラリ (`qrcode`, `papaparse`, `jschardet`)
+* `_locales/`: 多言語対応ファイル
+* `icons/`: アプリアイコン
 * `LICENSE`: ライセンスファイル
 
 ## ライセンス
@@ -92,3 +102,5 @@ Webブラウジングを快適にするためのFirefox/Chrome用アドオン（
 
 ### 使用ライブラリ
 * **qrcode.min.js**: Copyright (c) 2012 davidshimjs (MIT License)
+* **papaparse.min.js**: Copyright (c) 2013-2019 Matt Holt (MIT License)
+* **jschardet.min.js**: Copyright (c) 2019 Antonio Mendes (LGPL License)

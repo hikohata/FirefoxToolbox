@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/popup.css">
+  <script src="/lib/qrcode.min.js"></script>
+  <script src="/lib/data-l10n.js"></script>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="app-title">
+      <span class="app-logo">🛠️</span>
+      <span data-l10n="extensionName">Web Toolbox</span>
+    </div>
+
+  </header>
+
+  <!-- Navigation -->
+  <nav class="tabs-nav">
+    <button class="tab-btn active" data-tab="tab-actions" data-l10n="actions">Actions</button>
+    <button class="tab-btn" data-tab="tab-edit" data-l10n="editMode">Edit</button>
+    <button class="tab-btn" data-tab="tab-settings" data-l10n="settings">Settings</button>
+  </nav>
+
+  <!-- Tab 1: Actions -->
+  <div id="tab-actions" class="tab-content active">
+
+    <!-- Sticky Notes -->
+    <section class="card-section">
+      <h3 class="card-title" data-l10n="stickyNote">Sticky Notes</h3>
+      <div class="actions-grid">
+        <button id="btn-toggle-notes" class="action-btn">
+          <span class="sticky-active-indicator"></span>
+          <span class="icon">📝</span>
+          <span id="lbl-toggle-notes" data-l10n="activateNote">Toggle</span>
+        </button>
+        <button id="btn-view-notes-list" class="action-btn">
+          <span class="icon">📂</span>
+          <span data-l10n="allNotesList">List</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Utilities -->
+    <section class="card-section">
+      <h3 class="card-title" data-l10n="popupAndCopy">Utilities</h3>
+      <div class="actions-grid">
+        <button id="btn-smart-copy" class="action-btn primary-action">
+          <span class="icon">📋</span>
+          <span data-l10n="copySelected">Smart Copy</span>
+        </button>
+        <button id="btn-popup-window" class="action-btn">
+          <span class="icon">❐</span>
+          <span data-l10n="popup">Popup</span>
+        </button>
+        <button id="btn-copy-link" class="action-btn">
+          <span class="icon">🔗</span>
+          <span data-l10n="copyLink">Deep Link</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- QR Code -->
+    <section class="card-section">
+      <h3 class="card-title" data-l10n="mobileShare">Mobile Share</h3>
+      <div id="qrcode-area"
+        style="display:flex; justify-content:center; padding:10px; background:white; border-radius:8px;">
+        <div id="qrcode"></div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Tab 2: Edit & Dev -->
+  <div id="tab-edit" class="tab-content">
+
+    <!-- Modifications -->
+    <section class="card-section">
+      <h3 class="card-title" data-l10n="pageMods">Page Mods</h3>
+      <div class="actions-grid">
+        <button id="btn-toggle-edit" class="action-btn">
+          <span class="icon">✎</span>
+          <span data-l10n="editHtml">Edit HTML</span>
+        </button>
+        <button id="btn-zap-element" class="action-btn danger-action">
+          <span class="icon">⚡</span>
+          <span data-l10n="zapElement">Zap Element</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Anti-restriction -->
+    <section class="card-section">
+      <h3 class="card-title" data-l10n="unlockRestrictions">Unlock Restrictions</h3>
+
+      <div class="toggle-row">
+        <span class="toggle-label" data-l10n="rightClick">Enable Right Click</span>
+        <input type="checkbox" id="chk-unlock-context" class="custom-checkbox" checked>
+      </div>
+      <div class="toggle-row">
+        <span class="toggle-label" data-l10n="selectText">Enable Select</span>
+        <input type="checkbox" id="chk-unlock-select" class="custom-checkbox" checked>
+      </div>
+      <div class="toggle-row">
+        <span class="toggle-label" data-l10n="copying">Enable Copy</span>
+        <input type="checkbox" id="chk-unlock-copy" class="custom-checkbox" checked>
+      </div>
+
+      <button id="btn-run-unlock" class="action-btn primary-action btn-block">
+        <span class="icon">🔓</span>
+        <span data-l10n="unlockSelected">Unlock Selected</span>
+      </button>
+    </section>
+
+    <!-- Quick Text -->
+    <section class="card-section">
+      <h3 class="card-title" data-l10n="quickTextSnippets">Quick Text Snippets</h3>
+      <div id="quick-text-list" class="quick-text-list"></div>
+
+      <div class="input-group">
+        <input type="text" id="qt-key" class="modern-input" placeholder="Label">
+        <input type="text" id="qt-val" class="modern-input" placeholder="Text Content" style="flex:2;">
+        <button id="btn-add-qt" class="action-btn primary-action sm">＋</button>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Tab 3: Settings -->
+  <div id="tab-settings" class="tab-content">
+
+    <!-- Data Wiper -->
+    <section class="card-section">
+      <h3 class="card-title" data-l10n="dataWiper">Data Wiper</h3>
+      <p class="description" style="font-size:12px; opacity:0.7; margin-bottom:10px;" data-l10n="dataWiperDescription">
+        Clear data for current domain</p>
+
+      <div class="input-group" style="margin-bottom:10px;">
+        <select id="wiper-range" class="modern-input" style="width:100%;">
+          <option value="10min" data-l10n="range10mins">Last 10 mins</option>
+          <option value="1hour" data-l10n="range1hour">Last 1 hour</option>
+          <option value="24hours" data-l10n="range24hours">Last 24 hours</option>
+          <option value="everything" data-l10n="rangeEverything">Everything</option>
+        </select>
+      </div>
+
+      <button id="btn-data-wiper" class="action-btn danger-action btn-block">
+        <span class="icon">🗑️</span>
+        <span data-l10n="clearData">Clear Data</span>
+      </button>
+    </section>
+
+    <!-- Domain Blocker -->
+    <section class="card-section">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <h3 class="card-title" data-l10n="resourceBlocker">Resource Blocker</h3>
+        <button id="btn-reset-blocker" class="action-btn sm" data-l10n="clearAll">Clear All</button>
+      </div>
+
+      <div id="domain-list" class="domain-list">
+        <div class="loading" style="text-align:center; padding:10px;" data-l10n="analyzing">Analyzing...</div>
+      </div>
+
+      <button id="btn-reload-page" class="action-btn primary-action btn-block" disabled>
+        <span class="icon">↻</span> <span data-l10n="matchAndReload">Match & Reload</span>
+      </button>
+    </section>
+
+  </div>
+
+  <script src="/js/polyfill.js"></script>
+  <script src="/js/popup.js"></script>
+</body>
+
+</html>
