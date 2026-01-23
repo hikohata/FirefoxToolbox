@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSV Viewer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            padding: 20px;
+            color: #333;
+            background: #f9f9f9;
+        }
+
+        /* Header */
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 1.2rem;
+            margin: 0;
+            color: #444;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        #search-box {
+            padding: 8px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btn-download {
+            padding: 8px 20px;
+            background-color: #00d2ff;
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            transition: background 0.2s;
+        }
+
+        .btn-download:hover {
+            background-color: #00b0e0;
+        }
+
+        /* Table */
+        .table-wrapper {
+            overflow-x: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+
+        th,
+        td {
+            border: 1px solid #eee;
+            padding: 8px 12px;
+            text-align: left;
+            white-space: pre-wrap;
+            vertical-align: top;
+        }
+
+        tr:nth-child(1) {
+            background-color: #f4f6f8;
+            font-weight: bold;
+            color: #555;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fcfcfc;
+        }
+
+        tr:hover {
+            background-color: #f0f8ff;
+        }
+
+        #status-msg {
+            color: #d9534f;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <script src="/lib/jschardet.min.js"></script>
+    <script src="/lib/papaparse.min.js"></script>
+</head>
+
+<body>
+    <div class="header-bar">
+        <h1 id="file-name">Loading...</h1>
+        <div class="controls">
+            <input type="text" id="search-box" placeholder="Filter...">
+            <button id="download-btn" class="btn-download">Download Raw</button>
+        </div>
+    </div>
+
+    <div id="status-msg"></div>
+    <div id="table-container" class="table-wrapper"></div>
+
+    <script src="/js/viewer.js"></script>
+</body>
+
+</html>

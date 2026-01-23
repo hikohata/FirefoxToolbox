@@ -4,7 +4,7 @@
       "id": "toolbox@hikohata",
       "data_collection_permissions": {
         "required": [
-            "none"
+          "none"
         ]
       }
     }
@@ -12,18 +12,27 @@
   "manifest_version": 3,
   "name": "__MSG_extensionName__",
   "author": "Hiroyuki Kohata",
-  "version": "1.2",
+  "version": "1.3",
   "description": "__MSG_extensionDescription__",
   "permissions": [
     "activeTab",
     "scripting",
     "declarativeNetRequest",
     "clipboardWrite",
-    "storage"
+    "storage",
+    "browsingData",
+    "webNavigation",
+    "tabs"
   ],
+  "background": {
+    "scripts": [
+      "js/polyfill.js",
+      "js/background.js"
+    ]
+  },
   "action": {
-    "default_popup": "popup.html",
-  "default_icon": {
+    "default_popup": "html/popup.html",
+    "default_icon": {
       "16": "icons/icon-16.png",
       "48": "icons/icon-48.png",
       "128": "icons/icon-128.png"
@@ -31,9 +40,29 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["polyfill.js", "sticky_notes.js"], 
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "js/polyfill.js",
+        "js/sticky_notes.js",
+        "js/notifications.js"
+      ],
+      "css": [
+        "css/notifications.css"
+      ],
       "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "js/notifications.js",
+        "css/notifications.css"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
     }
   ],
   "icons": {

@@ -1,54 +1,212 @@
 {
-    "extensionName":            {"message": "Web Browsing Toolbox"},
-    "extensionDescription":     {"message": "ウェブブラウジングを便利にするツール箱"},
-    "smartcopyGuide":           {"message": "スマートコピー: コピーしたいエリア(要素)をクリックしてください。\n(WordやExcelへの貼り付けに最適です)"},
-    "smartcopyCopied":          {"message": "コピーしました！\n貼り付け先でペーストしてください。"},
-    "smartcopyFailed":          {"message": "コピーに失敗しました: "},
-    "canceled":                 {"message": "キャンセルしました"},
-    "quicktextNoRegistration":  {"message": "登録なし"},
-    "quicktextGuideToPaste":    {"message": "入力欄を選択(フォーカス)してからクリックしてください"},
-    "copyLink":                 {"message": "リンクコピー"},
-    "completed":                {"message": "完了"},
-    "editMode":                 {"message": "編集モード"},
-    "deleteMode":               {"message": "削除モード: 要素をクリックして削除 (Escで終了)"},
-    "finished":                 {"message": "終了しました"},
-    "unlocked":                 {"message": "解除しました"},
-    "unavailable":              {"message": "利用不可"},
-    "noExternalResources":      {"message": "外部リソースなし"},
-    "popupAndCopy":             {"message": "ポップアップ & コピー"},
-    "popup":                    {"message": "ポップアップ"},
-    "copySelected":             {"message": "要素選択コピー"},
-    "editAndUnlock":            {"message": "編集・制限解除"},
-    "deleteSelected":           {"message": "要素選択削除"},
-    "rightClick":               {"message": " 右クリック"},
-    "selectText":               {"message": " テキスト選択"},
-    "copying":                  {"message": " コピー"},
-    "unlockChecked":            {"message": " 選択した制限を解除"},
-    "quickText":                {"message": "クイックテキスト"},
-    "quickTextDescription":     {"message": "直前にカーソルがあった場所に挿入します"},
-    "quickTextNamePlaceholder": {"message": "名称 (例: 住所)"},
-    "quickTextValuePlaceholder":{"message": "値 (例: 東京都...)"},
-    "domainBlocker":            {"message": "ドメインブロッカー"},
-    "domainBlockerDescription": {"message": "チェックでlocalhostへ転送"},
-    "clearAll":                 {"message": "全て解除"},
-    "analyzing":                {"message": "解析中..."},
-    "applyChange":              {"message": "変更を反映 (ページ更新)"},
-    "urlQRCode":                {"message": "URLのQRコード"},
-    "stickyNote":               {"message": "付箋紙"},
-    "activateNote":             {"message": "有効化"},
-    "deactivateNote":           {"message": "無効化"},
-    "allNotesList":             {"message": "全付箋リスト"},
-    "clearPageNotes":           {"message": "全削除"},
-    "clearPageNotesConfirm":    {"message": "このページの付箋を全て削除しますか？"},
-    "newNote":                  {"message": "新規"},
-    "storedStickyNotes":        {"message": "保存された付箋紙"},
-    "pageTitle":                {"message": "ページタイトル"},
-    "url":                      {"message": "URL"},
-    "noteContent":              {"message": "付箋コンテンツ"},
-    "updated":                  {"message": "更新日時"},
-    "action":                   {"message": "アクション"},
-    "noNotes":                  {"message": "保存された付箋紙はありません"},
-    "deleteNote":               {"message": "この付箋を削除"},
-    "deleteNoteConfirm":        {"message": "この付箋を削除しますか？"}
-    
+    "extensionName": {
+        "message": "Web Browsing Toolbox"
+    },
+    "extensionDescription": {
+        "message": "ウェブブラウジングを便利にするツール箱"
+    },
+    "smartcopyGuide": {
+        "message": "スマートコピー: コピーしたいエリア(要素)をクリックしてください。\n(WordやExcelへの貼り付けに最適です)"
+    },
+    "smartcopyCopied": {
+        "message": "コピーしました！\n貼り付け先でペーストしてください。"
+    },
+    "smartcopyFailed": {
+        "message": "コピーに失敗しました: "
+    },
+    "canceled": {
+        "message": "キャンセルしました"
+    },
+    "quicktextNoRegistration": {
+        "message": "登録なし"
+    },
+    "quicktextGuideToPaste": {
+        "message": "入力欄を選択(フォーカス)してからクリックしてください"
+    },
+    "copyLink": {
+        "message": "リンクコピー"
+    },
+    "completed": {
+        "message": "完了"
+    },
+    "editMode": {
+        "message": "編集モード"
+    },
+    "deleteMode": {
+        "message": "削除モード: 要素をクリックして削除 (Escで終了)"
+    },
+    "finished": {
+        "message": "終了しました"
+    },
+    "unlocked": {
+        "message": "解除しました"
+    },
+    "unavailable": {
+        "message": "利用不可"
+    },
+    "noExternalResources": {
+        "message": "外部リソースなし"
+    },
+    "popupAndCopy": {
+        "message": "ユーティリティ"
+    },
+    "popup": {
+        "message": "ポップアップ"
+    },
+    "copySelected": {
+        "message": "要素選択コピー"
+    },
+    "editAndUnlock": {
+        "message": "編集・制限解除"
+    },
+    "deleteSelected": {
+        "message": "要素削除"
+    },
+    "rightClick": {
+        "message": " 右クリック"
+    },
+    "selectText": {
+        "message": " テキスト選択"
+    },
+    "copying": {
+        "message": " コピー"
+    },
+    "unlockChecked": {
+        "message": " 選択した制限を解除"
+    },
+    "quickText": {
+        "message": "クイックテキスト"
+    },
+    "quickTextDescription": {
+        "message": "直前にカーソルがあった場所に挿入します"
+    },
+    "quickTextNamePlaceholder": {
+        "message": "名称 (例: 住所)"
+    },
+    "quickTextValuePlaceholder": {
+        "message": "値 (例: 東京都...)"
+    },
+    "domainBlocker": {
+        "message": "リソースブロッカー"
+    },
+    "domainBlockerDescription": {
+        "message": "チェックでlocalhostへ転送"
+    },
+    "clearAll": {
+        "message": "全て解除"
+    },
+    "analyzing": {
+        "message": "解析中..."
+    },
+    "applyChange": {
+        "message": "変更を反映 (ページ更新)"
+    },
+    "urlQRCode": {
+        "message": "URLのQRコード"
+    },
+    "stickyNote": {
+        "message": "付箋紙"
+    },
+    "activateNote": {
+        "message": "有効化"
+    },
+    "deactivateNote": {
+        "message": "無効化"
+    },
+    "allNotesList": {
+        "message": "全付箋リスト"
+    },
+    "clearPageNotes": {
+        "message": "全削除"
+    },
+    "clearPageNotesConfirm": {
+        "message": "このページの付箋を全て削除しますか？"
+    },
+    "newNote": {
+        "message": "新規"
+    },
+    "storedStickyNotes": {
+        "message": "保存された付箋紙"
+    },
+    "pageTitle": {
+        "message": "ページタイトル"
+    },
+    "url": {
+        "message": "URL"
+    },
+    "noteContent": {
+        "message": "付箋コンテンツ"
+    },
+    "updated": {
+        "message": "更新日時"
+    },
+    "action": {
+        "message": "アクション"
+    },
+    "noNotes": {
+        "message": "保存された付箋紙はありません"
+    },
+    "deleteNote": {
+        "message": "この付箋を削除"
+    },
+    "deleteNoteConfirm": {
+        "message": "この付箋を削除しますか？"
+    },
+    "actions": {
+        "message": "アクション"
+    },
+    "settings": {
+        "message": "設定"
+    },
+    "mobileShare": {
+        "message": "モバイル共有"
+    },
+    "pageMods": {
+        "message": "ページ編集"
+    },
+    "editHtml": {
+        "message": "HTML編集"
+    },
+    "zapElement": {
+        "message": "要素削除"
+    },
+    "unlockRestrictions": {
+        "message": "制限解除"
+    },
+    "unlockSelected": {
+        "message": "選択解除"
+    },
+    "quickTextSnippets": {
+        "message": "定型文ツール"
+    },
+    "resourceBlocker": {
+        "message": "リソースブロッカー"
+    },
+    "matchAndReload": {
+        "message": "反映＆リロード"
+    },
+    "dataWiper": {
+        "message": "データワイパー"
+    },
+    "dataWiperDescription": {
+        "message": "このドメインの履歴・キャッシュを削除"
+    },
+    "range10mins": {
+        "message": "過去10分"
+    },
+    "range1hour": {
+        "message": "過去1時間"
+    },
+    "range24hours": {
+        "message": "過去24時間"
+    },
+    "rangeEverything": {
+        "message": "全期間"
+    },
+    "clearData": {
+        "message": "データを削除"
+    },
+    "clearDataSuccess": {
+        "message": "データを削除しました"
+    }
 }
