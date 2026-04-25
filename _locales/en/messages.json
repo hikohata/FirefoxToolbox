@@ -185,6 +185,15 @@
     "matchAndReload": {
         "message": "Match & Reload"
     },
+    "autoReload": {
+        "message": "Auto Reload"
+    },
+    "start": {
+        "message": "Start"
+    },
+    "stop": {
+        "message": "Stop"
+    },
     "dataWiper": {
         "message": "Data Wiper"
     },

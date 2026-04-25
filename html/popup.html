@@ -65,6 +65,21 @@
       </div>
     </section>
 
+    <!-- Auto Reload -->
+    <section class="card-section">
+      <h3 class="card-title" data-l10n="autoReload">Auto Reload</h3>
+      <div class="input-group" style="margin-bottom: 10px;">
+        <input type="number" id="reload-interval" class="modern-input" value="5" min="1" style="width: 60px;">
+        <span style="font-size: 12px; opacity: 0.8; align-self: center; margin-left: 5px;">min</span>
+        <button id="btn-toggle-reload" class="action-btn primary-action" style="flex: 1; margin-left: 10px;">
+          <span id="lbl-toggle-reload" data-l10n="start">Start</span>
+        </button>
+      </div>
+      <div id="reload-status" style="font-size: 11px; color: #00d2ff; text-align: center; display: none;">
+        Next reload in: <span id="reload-timer">--:--</span>
+      </div>
+    </section>
+
     <!-- QR Code -->
     <section class="card-section">
       <h3 class="card-title" data-l10n="mobileShare">Mobile Share</h3>

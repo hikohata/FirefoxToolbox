@@ -59,18 +59,22 @@ function renderTable(data) {
         return;
     }
 
-    let html = '<table><tbody>';
-    data.forEach(row => {
-        html += '<tr>';
-        row.forEach(cell => {
-            const safeCell = escapeHtml(cell);
-            html += `<td>${safeCell}</td>`;
-        });
-        html += '</tr>';
-    });
-    html += '</tbody></table>';
+    container.textContent = '';
+    const table = document.createElement('table');
+    const tbody = document.createElement('tbody');
 
-    container.innerHTML = html;
+    data.forEach(row => {
+        const tr = document.createElement('tr');
+        row.forEach(cell => {
+            const td = document.createElement('td');
+            td.textContent = cell === null || cell === undefined ? "" : String(cell);
+            tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+    });
+
+    table.appendChild(tbody);
+    container.appendChild(table);
 }
 
 document.getElementById('search-box').addEventListener('input', (e) => {

@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initQuickText();
   initDataWiper();
   initDomainBlocker();
+  await initAutoReload();
 });
 
 // --- Tab Navigation ---
@@ -120,7 +121,7 @@ function initSmartCopy() {
 
         const style = document.createElement('style');
         style.id = 'smart-copy-style';
-        style.innerHTML = `
+        style.textContent = `
                     * { cursor: copy !important; }
                     *:hover {
                         outline: 3px solid #00d2ff !important;
@@ -173,6 +174,68 @@ function initSmartCopy() {
 }
 
 // ==========================================
+// Feature: Auto Reload
+// ==========================================
+async function initAutoReload() {
+  const tab = await getCurrentTab();
+  const btnToggle = document.getElementById('btn-toggle-reload');
+  const lblToggle = document.getElementById('lbl-toggle-reload');
+  const inputInterval = document.getElementById('reload-interval');
+  const statusEl = document.getElementById('reload-status');
+  const timerEl = document.getElementById('reload-timer');
+
+  const updateUI = (alarm) => {
+    if (alarm) {
+      btnToggle.classList.add('danger-action');
+      btnToggle.classList.remove('primary-action');
+      lblToggle.innerText = browser.i18n.getMessage("stop") || "Stop";
+      statusEl.style.display = 'block';
+      
+      const next = new Date(alarm.scheduledTime);
+      const now = new Date();
+      const diff = Math.max(0, Math.round((next - now) / 1000));
+      const m = Math.floor(diff / 60);
+      const s = diff % 60;
+      timerEl.innerText = `${m}:${s.toString().padStart(2, '0')}`;
+    } else {
+      btnToggle.classList.add('primary-action');
+      btnToggle.classList.remove('danger-action');
+      lblToggle.innerText = browser.i18n.getMessage("start") || "Start";
+      statusEl.style.display = 'none';
+    }
+  };
+
+  // Initial check
+  const alarm = await browser.runtime.sendMessage({ action: 'getAutoReloadState', tabId: tab.id });
+  updateUI(alarm);
+
+  // Interval update for timer display
+  let timerInterval = setInterval(async () => {
+    const alarm = await browser.runtime.sendMessage({ action: 'getAutoReloadState', tabId: tab.id });
+    if (alarm) {
+      updateUI(alarm);
+    } else {
+      updateUI(null);
+      clearInterval(timerInterval);
+    }
+  }, 1000);
+
+  btnToggle.addEventListener('click', async () => {
+    const currentAlarm = await browser.runtime.sendMessage({ action: 'getAutoReloadState', tabId: tab.id });
+    if (currentAlarm) {
+      await browser.runtime.sendMessage({ action: 'stopAutoReload', tabId: tab.id });
+      updateUI(null);
+    } else {
+      const interval = parseFloat(inputInterval.value);
+      if (isNaN(interval) || interval < 1) return;
+      await browser.runtime.sendMessage({ action: 'startAutoReload', tabId: tab.id, interval: interval });
+      const newAlarm = await browser.runtime.sendMessage({ action: 'getAutoReloadState', tabId: tab.id });
+      updateUI(newAlarm);
+    }
+  });
+}
+
+// ==========================================
 // Feature: Utilities
 // ==========================================
 function initUtilities() {
@@ -181,15 +244,15 @@ function initUtilities() {
     browser.windows.create({ url: tab.url, type: 'popup', width: 800, height: 600 });
   });
 
-  document.getElementById('btn-copy-link').addEventListener('click', async () => {
+    document.getElementById('btn-copy-link').addEventListener('click', async () => {
     const tab = await getCurrentTab();
     const text = `${tab.title}\n${tab.url}`;
     await navigator.clipboard.writeText(text);
 
     const btn = document.getElementById('btn-copy-link');
-    const originalHtml = btn.innerHTML;
-    btn.innerHTML = '<span class="icon">✔</span>';
-    setTimeout(() => btn.innerHTML = originalHtml, 1500);
+    const originalText = btn.textContent;
+    btn.textContent = '✔';
+    setTimeout(() => btn.textContent = originalText, 1500);
   });
 }
 
@@ -236,7 +299,7 @@ function initPageMods() {
       func: () => {
         const style = document.createElement('style');
         style.id = 'zap-style';
-        style.innerHTML = `*:hover { outline: 2px solid red !important; background: rgba(255,0,0,0.1) !important; cursor: crosshair !important; }`;
+        style.textContent = `*:hover { outline: 2px solid red !important; background: rgba(255,0,0,0.1) !important; cursor: crosshair !important; }`;
         document.body.appendChild(style);
 
         chrome.runtime.sendMessage({ action: 'showToast', message: 'Click element to delete', type: 'info' }).catch(() => { });
@@ -255,7 +318,7 @@ function initPageMods() {
 }
 
 function initUnlocker() {
-  document.getElementById('btn-run-unlock').addEventListener('click', async () => {
+    document.getElementById('btn-run-unlock').addEventListener('click', async () => {
     const tab = await getCurrentTab();
     const opts = {
       context: document.getElementById('chk-unlock-context').checked,
@@ -264,7 +327,7 @@ function initUnlocker() {
     };
 
     const btn = document.getElementById('btn-run-unlock');
-    btn.innerHTML = '<span class="icon">✔</span> Done';
+    btn.textContent = '✔ Done';
 
     await browser.scripting.executeScript({
       target: { tabId: tab.id },
@@ -274,7 +337,7 @@ function initUnlocker() {
         if (o.context) ['contextmenu', 'mousedown', 'mouseup'].forEach(e => window.addEventListener(e, stop, true));
         if (o.select) {
           const s = document.createElement('style');
-          s.innerHTML = '*,*::before,*::after{-webkit-user-select:text!important;user-select:text!important;}';
+          s.textContent = '*,*::before,*::after{-webkit-user-select:text!important;user-select:text!important;}';
           document.head.appendChild(s);
           document.addEventListener('selectstart', stop, true);
         }
@@ -284,7 +347,7 @@ function initUnlocker() {
       }
     });
 
-    setTimeout(() => btn.innerHTML = '<span class="icon">🔓</span> ' + (browser.i18n.getMessage("unlockSelected") || "Unlock"), 1000);
+    setTimeout(() => btn.textContent = '🔓 ' + (browser.i18n.getMessage("unlockSelected") || "Unlock"), 1000);
   });
 }
 
@@ -345,7 +408,7 @@ function initDataWiper() {
         }
 
         await browser.browsingData.remove(options, types);
-        btn.innerHTML = '<span class="icon">✔</span> Cleared';
+        btn.textContent = '✔ Cleared';
         notify(tab.id, "Data cleared for " + domain, "success");
       } catch (e) {
         console.error(e);
@@ -367,7 +430,7 @@ function initDataWiper() {
             }
 
             await browser.browsingData.remove(options, { "cache": true, "cookies": true, "history": true, "localStorage": true });
-            btn.innerHTML = '<span class="icon">✔</span> Cleared';
+            btn.textContent = '✔ Cleared';
             notify(tab.id, "Data cleared (retry)", "success");
             return; // Success
           } catch (ex) {
@@ -379,7 +442,7 @@ function initDataWiper() {
       }
 
       setTimeout(() => {
-        btn.innerHTML = '<span class="icon">🗑️</span> ' + (browser.i18n.getMessage("clearData") || "Clear Data");
+        btn.textContent = '🗑️ ' + (browser.i18n.getMessage("clearData") || "Clear Data");
       }, 2000);
     }
   });
@@ -392,7 +455,7 @@ async function initQRCode() {
   const tab = await getCurrentTab();
   const container = document.getElementById('qrcode');
   if (typeof QRCode !== 'undefined') {
-    container.innerHTML = '';
+    container.textContent = '';
     new QRCode(container, {
       text: tab.url, width: 128, height: 128,
       colorDark: "#1c1c38", colorLight: "#ffffff",
@@ -412,9 +475,9 @@ function initQuickText() {
   const render = async () => {
     const data = await browser.storage.local.get('quickTexts');
     const items = data.quickTexts || [];
-    qtList.innerHTML = '';
+    qtList.textContent = '';
     if (items.length === 0) {
-      qtList.innerHTML = `<div style="padding:10px; color:#aaa; font-size:12px;">${browser.i18n.getMessage("quicktextNoRegistration") || "No items"}</div>`;
+      qtList.textContent = browser.i18n.getMessage("quicktextNoRegistration") || "No items";
       return;
     }
     items.forEach((item, idx) => {
@@ -445,7 +508,7 @@ function initQuickText() {
 
       const del = document.createElement('span');
       del.className = 'qt-del';
-      del.innerHTML = '×';
+      del.textContent = '×';
       del.onclick = async (e) => {
         e.stopPropagation();
         items.splice(idx, 1);
@@ -480,7 +543,7 @@ async function initDomainBlocker() {
   btnReload.addEventListener('click', () => { browser.tabs.reload(tab.id); window.close(); });
 
   if (!tab.url.startsWith('http')) {
-    listEl.innerHTML = '<div style="padding:10px; text-align:center;">Unavailable</div>';
+    listEl.textContent = 'Unavailable';
     return;
   }
 
@@ -505,8 +568,8 @@ async function initDomainBlocker() {
   });
 
   const domains = res[0]?.result || [];
-  listEl.innerHTML = '';
-  if (domains.length === 0) listEl.innerHTML = `<div style="padding:10px; text-align:center;">${browser.i18n.getMessage("noExternalResources") || "None"}</div>`;
+  listEl.textContent = '';
+  if (domains.length === 0) listEl.textContent = browser.i18n.getMessage("noExternalResources") || "None";
 
   domains.forEach(d => {
     const row = document.createElement('div');

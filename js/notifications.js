@@ -37,10 +37,15 @@
     if (type === 'success') icon = '✔';
     if (type === 'error') icon = '✖';
 
-    toast.innerHTML = `
-      <span class="toolbox-toast-icon">${icon}</span>
-      <span class="toolbox-toast-msg">${escapeHtml(message)}</span>
-    `;
+    const iconSpan = document.createElement('span');
+    iconSpan.className = 'toolbox-toast-icon';
+    iconSpan.textContent = icon;
+    
+    const msgSpan = document.createElement('span');
+    msgSpan.className = 'toolbox-toast-msg';
+    msgSpan.textContent = message;
+
+    toast.append(iconSpan, msgSpan);
 
     container.appendChild(toast);
 

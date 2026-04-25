@@ -106,7 +106,7 @@ function createNote(data) {
   hdr.className = 'sn-header';
   const close = document.createElement('span');
   close.className = 'sn-close';
-  close.innerHTML = '×';
+  close.textContent = '×';
   close.onclick = async () => {
     if (confirm('Delete?')) {
       const list = await Store.get();
@@ -168,7 +168,7 @@ function createDock() {
 
   const addBtn = document.createElement('button');
   addBtn.className = 'sn-btn';
-  addBtn.innerHTML = '＋';
+  addBtn.textContent = '＋';
   addBtn.title = "New Note";
   addBtn.onclick = async () => {
     const note = {
@@ -188,7 +188,7 @@ function createDock() {
 
   const clearBtn = document.createElement('button');
   clearBtn.className = 'sn-btn danger';
-  clearBtn.innerHTML = '🗑';
+  clearBtn.textContent = '🗑';
   clearBtn.title = "Clear All";
   clearBtn.onclick = async () => {
     if (confirm('Clear all notes on this page?')) {

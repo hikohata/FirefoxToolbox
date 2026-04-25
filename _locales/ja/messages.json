@@ -183,7 +183,16 @@
         "message": "リソースブロッカー"
     },
     "matchAndReload": {
-        "message": "反映＆リロード"
+        "message": "適用してリロード"
+    },
+    "autoReload": {
+        "message": "自動リロード"
+    },
+    "start": {
+        "message": "開始"
+    },
+    "stop": {
+        "message": "停止"
     },
     "dataWiper": {
         "message": "データワイパー"

@@ -9,6 +9,7 @@ It is secure since it runs locally without any external access.
 1. **Page Operations**
    * **Open as Popup:** Reopen the current page in a small popup window.
    * **Rich Link Copy:** Copy the page title and URL to the clipboard simultaneously in both hyperlink format (for Excel/Word) and plain text.
+   * **Auto Reload:** Automatically reload the current page at specified intervals (minutes).
 
 2. **Element Selection & Copy**
    * Copy tables or specific block elements from the page in a format that preserves styling for pasting into Word or Excel.
@@ -58,6 +59,7 @@ Webブラウジングを快適にするためのFirefox/Chrome用アドオン（
 1.  **ページ操作**
     * **ポップアップウィンドウ化**: 現在のページを小さなポップアップウィンドウで開き直します。
     * **リッチリンクコピー**: ページのタイトルとURLをハイパーリンク形式（Excel/Word用）とテキスト形式で同時にクリップボードへコピーします。
+    * **自動リロード**: 指定した間隔（分単位）でページを自動的に再読み込みします。
 
 2.  **要素選択コピー**
     * ページ内の表や特定のブロック要素を、スタイルを保ったままWordやExcelに貼り付けられる形式でコピーします。

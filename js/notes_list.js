@@ -26,24 +26,55 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Empty State
     if (rows.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="5" class="empty">' + (browser.i18n.getMessage("noNotes") || "No notes") + '</td></tr>';
+      const emptyRow = document.createElement('tr');
+      const emptyCell = document.createElement('td');
+      emptyCell.colSpan = 5;
+      emptyCell.className = 'empty';
+      emptyCell.textContent = browser.i18n.getMessage("noNotes") || "No notes";
+      emptyRow.appendChild(emptyCell);
+      tbody.appendChild(emptyRow);
       return;
     }
 
     // Render
     const render = (data) => {
-      tbody.innerHTML = '';
+      tbody.textContent = '';
       data.forEach(item => {
         const tr = document.createElement('tr');
         const dateStr = item.lastUpdated ? new Date(item.lastUpdated).toLocaleString() : '-';
 
-        tr.innerHTML = `
-                  <td style="font-weight:bold;">${escapeHtml(item.title || 'Untitled')}</td>
-                  <td><a href="${item.url || '#'}" target="_blank">${truncate(item.url || '', 40)}</a></td>
-                  <td class="note-text">${escapeHtml(item.text || '')}</td>
-                  <td style="font-size:0.9em; color:#666;">${dateStr}</td>
-                  <td class="actions"></td>
-                `;
+        // Title Cell
+        const tdTitle = document.createElement('td');
+        tdTitle.style.fontWeight = 'bold';
+        tdTitle.textContent = item.title || 'Untitled';
+        tr.appendChild(tdTitle);
+
+        // URL Cell
+        const tdUrl = document.createElement('td');
+        const link = document.createElement('a');
+        link.href = item.url || '#';
+        link.target = '_blank';
+        link.textContent = truncate(item.url || '', 40);
+        tdUrl.appendChild(link);
+        tr.appendChild(tdUrl);
+
+        // Content Cell
+        const tdText = document.createElement('td');
+        tdText.className = 'note-text';
+        tdText.textContent = item.text || '';
+        tr.appendChild(tdText);
+
+        // Date Cell
+        const tdDate = document.createElement('td');
+        tdDate.style.fontSize = '0.9em';
+        tdDate.style.color = '#666';
+        tdDate.textContent = dateStr;
+        tr.appendChild(tdDate);
+
+        // Actions Cell
+        const tdActions = document.createElement('td');
+        tdActions.className = 'actions';
+        tr.appendChild(tdActions);
 
         // Delete Button
         const delBtn = document.createElement('button');
@@ -64,7 +95,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           tr.remove();
         };
 
-        tr.querySelector('.actions').appendChild(delBtn);
+        tdActions.appendChild(delBtn);
         tbody.appendChild(tr);
       });
     };
@@ -91,7 +122,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   } catch (e) {
     console.error("Failed to load notes:", e);
-    tbody.innerHTML = '<tr class="error"><td colspan="5">Error loading notes: ' + e.message + '</td></tr>';
+    tbody.textContent = '';
+    const errRow = document.createElement('tr');
+    errRow.className = 'error';
+    const errCell = document.createElement('td');
+    errCell.colSpan = 5;
+    errCell.textContent = 'Error loading notes: ' + e.message;
+    errRow.appendChild(errCell);
+    tbody.appendChild(errRow);
   }
 });
 
